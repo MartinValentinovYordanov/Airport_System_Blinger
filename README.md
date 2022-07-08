@@ -7,7 +7,7 @@ services.AddDbContext<BlingerDbContext>(options =>
                 options.UseMySql("server=localhost; port=3307; user=root; password=123456789; database=blinger", new MySqlServerVersion(new System.Version(8, 0, 22)));
             });
 After you make your DB server change the values inside the quotes above.
-
+The DB version is MariaDB
 
 
 

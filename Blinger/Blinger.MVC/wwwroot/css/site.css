@@ -1,0 +1,600 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    align-content:start;
+}
+
+.btnfordelete {
+    border: 1px solid red;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    user-select: none;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    color: none;
+    background-color: none;
+    border: none ;
+    visibility:hidden;
+
+}
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        white-space: nowrap;
+        line-height: 60px; /* Vertically center the text there */
+    }
+.table > tbody > tr:hover .btnfordelete,
+.table > tbody > td:hover .btnfordelete {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    user-select: none;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration:none;
+    background-color: #ff4444 !important;
+    color: white;
+    visibility:visible;
+}
+
+.homepage-textcenter {
+    text-align: center;
+}
+.homepage-optionmenu>   ul {
+    position: relative;
+    transform: skewY(-15deg);
+    transition:0.5s;
+}
+    
+.homepage-optionmenu > ul > li > a{
+    text-decoration:none;
+    color:white;
+    text-transform:uppercase;
+    transition:0.5s;
+}
+.homepage-optionmenu > ul > li > h1 {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight:bold;
+    cursor:default;
+}
+    .homepage-optionmenu > ul > li {
+        position: relative;
+        list-style: none;
+        width: 200px;
+        background: #f5b8bf;
+        padding: 15px;
+        z-index: var(--i);
+        transition: 0.5s;
+    }
+        .homepage-optionmenu > ul > li ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40px;
+            width: 40px;
+            height: 100%;
+            background: #ff8fa0;
+            transform-origin: right;
+            transform: skewY(45deg);
+            transition: 0.5s;
+        }
+        .homepage-optionmenu > ul > li ::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0px;
+            width: 100%;
+            height: 40px;
+            background: #ffa7b4;
+            transform-origin: bottom;
+            transform: skewX(45deg);
+            transition: 0.5s;
+        }
+    .homepage-optionmenu > ul .lists:hover {
+        background: #9dc7ed;
+        transform: translateX(50px);
+    }
+    .homepage-optionmenu > ul > .lists:hover ::before {
+        background: #3dc7ed;
+    }
+    .homepage-optionmenu > ul > .lists:hover ::after {
+        
+        background: #6dc7ed;
+    }
+.homepage-optionmenu > ul > li :last-child ::after {
+    box-shadow:-100px 100px 20px rgba(0,0,0,0.5);
+}
+.homepage-optionmenu>ul{
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.optionMenuFlex {
+    display: flex;
+    flex-direction: row;
+}
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .homepage-textcenter{
+    margin-bottom:100px;
+}
+.reveal{
+    position: relative;
+    transform:translateY(150px);
+    opacity:0;
+    transition: all 2s ease;
+}
+.reveal.active{
+    transform:translateY(0px);
+    opacity:1;
+}
+.sectionHomePage {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.Scroll {
+    position: absolute;
+    bottom : 50px;
+}
+    .Scroll a {
+        text-decoration: none;
+        font-size: 46px;
+        color:black;
+        position: relative;
+        animation: scroolmove 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+@keyframes scroolmove {
+    from {
+        top: -20px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+.HomeIndex {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(https://media4.giphy.com/media/JSjVUhKot7GfyP5cUZ/giphy.gif?cid=ecf05e4762knqwdmqdwgpmm1i8o8r4z0m3gkk8qo8i4be9ho&rid=giphy.gif&ct=g.gif);
+    background-color: #cccccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    
+}
+.FlightIndex {
+    background-color: #fdc7ed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.AirlinesIndex {
+    background-color: #fdc7ed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+@keyframes example {
+    from {
+        background-color: #9dc7ed;
+    }
+
+    to {
+        background-color: #cdc7ed;
+    }
+}
+
+.SearchForFlight .btn {
+    position: relative;
+    animation: mymove 1.75s;
+}
+
+@keyframes mymove {
+    from {
+        left: 300px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+#div1 {
+    animation-timing-function: linear;
+}
+
+#div2 {
+    animation-timing-function: ease;
+}
+
+#div3 {
+    animation-timing-function: ease-in;
+}
+
+.FlightIndex .table td {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+    .FlightIndex .table tbody {
+        border-bottom: 2px solid black;
+    }
+    .FlightIndex .table tr {
+        border-bottom: 2px solid black;
+        border-top:2px solid black;
+    }
+    .FlightIndex .table th {
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+        .FlightIndex .table tr:nth-child(4) {
+        border-bottom: 2px solid black;
+        border-top:2px solid black;
+    }
+        .FlightIndex .table {
+            font-weight:bold;
+        }
+.modal-dialog1 {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-right:20px;
+}
+.itemsForTheModal{
+    display:flex;
+    flex-direction:column;
+    margin-top:20px;
+}
+.modal-footer{
+    justify-content:center;
+}
+.FlightIndexSearch{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.FlightSearchBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    text-align:center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 14px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12), 0 32px 32px rgba(0,0,0,0.12);
+}
+.FlightUppedSearchBox {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin: auto;
+    padding: 15px;
+    width: 100%;
+}
+.FlightBottomSearch {
+    display: flex;
+    flex-direction: row;
+    
+}
+.FlightSearchItem{
+    margin-inline:auto;
+}
+.FlightSearchLeft {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px;
+    border-color:black;
+    border-right: 0px;
+    margin-left: auto;
+    padding: 15px;
+    width: 100%;
+}
+.FlightSearchRight {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    padding: 15px;
+    width: 100%;
+    border-top: 0px;
+}
+.FlightSearchButton {
+    background-color: #1b6ec2;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    border-radius: 14px;
+}
+.FlightSearchButton .btn-primary {
+    border: 1px;
+    
+}
+    .FlightSearchButton:hover {
+        background-color: #0069d9;
+    }
+
+.GoBackToFlights {
+    margin-bottom: 100px;
+    margin-top: 20px;
+    align-self: start;
+}
+.AirlinesCenter .row{
+    display:flex;
+    justify-content:center;
+}
+.AirlinesCenter .BackToListAirlines {
+    text-align: center;
+}
+thead{
+    background:rgba(0,0,0,0.5);
+    color:white;
+    
+}
+.AirlinesCenter {
+    margin-top: 100px;
+    text-align: center;
+}
+.DeleteButton {
+    background-color: #cdc7ed;
+    background-image: linear-gradient(to right,#fdc7ed,#3dc7ed);
+    border: 0px;
+    color: black;
+    display: inline-block;
+    border-radius: 14px;
+}
+
+.CreateNew{
+    margin-top:150px;
+    text-align:center;
+    margin-bottom:70px;
+    font-weight:bold;
+    font-size:24px;
+}
+.CreateNewAirpots {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 150px;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+.CreateNewAirpots .DeleteButton{
+    font-size:20px;
+}
+.FormCenter .row {
+    display: flex;
+    justify-content: center;
+    margin-top:100px;
+}
+.FormCenter {
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 0;
+    width: 1000px;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12), 0 32px 32px rgba(0,0,0,0.12);
+    margin-top:100px;
+}
+.IndexTables {
+    width:50%;
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+}
+.FlightIndex .BackToListAirlines {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.FlightIndexSearch{
+    margin-top:60px;
+}
+
+.FormCenter button{
+    text-align:center;
+}
+.sidenav {
+    display:block;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space:nowrap;
+    overflow-x:hidden;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+.sidenav a {
+    position: relative;
+    animation: mymove1 1.0s;
+}
+
+@keyframes mymove1 {
+    from {
+        left: -300px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+.FlightIndexSearch .TopAnimation {
+    position: relative;
+    animation: mymove2 1.0s;
+}
+@keyframes mymove2 {
+    from {
+        top: -300px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+.FlightIndex .SearchForm {
+    position: relative;
+    animation: mymove2 1.0s;
+}
+.CreateNewAirpots .DeleteButton {
+    position: relative;
+    animation: mymove2 1.0s;
+}
+
+
+.FormCenter .BackToListAirlines {
+    text-align: center;
+}
+
+.IndexTables th{
+    padding-left:0;
+    padding-right:0;
+    padding-top: 0.75rem;
+    padding-bottom:0.75rem;
+}
+
+.FlightIndex .FormCenter {
+    position: relative;
+    animation: mymove3 .95s;
+}
+@keyframes mymove3 {
+    from {
+        top: -300px;
+    }
+
+    to {
+        top: 0px;
+    }
+}

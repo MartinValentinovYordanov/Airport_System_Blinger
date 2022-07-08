@@ -1,0 +1,82 @@
+﻿@model Blinger.MVC.Models.FlightModels.FlightSearchModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<body class="FlightIndex">
+    <form asp-action="Search" class="SearchForm" id="div1">
+        <div class="FlightSearchBox">
+            <div class="FlightUppedSearchBox">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="FlightSearchItem">
+                    <div class="form-group">
+                        <label asp-for="AirportOriginName" class="control-label"></label>
+                        <select asp-for="AirportOriginName" class="form-control">
+                            <option value="" selected disabled></option>
+                            @foreach (var airport in Model.AllAirports)
+                            {
+                                <option>@airport.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirportOriginName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="FlightSearchItem">
+                    <div class="form-group">
+                        <label asp-for="AirportDestinationName" class="control-label"></label>
+                        <select asp-for="AirportDestinationName" class="form-control">
+                            <option value="" selected disabled></option>
+                            @foreach (var airport in Model.AllAirports)
+                            {
+                                <option>@airport.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirportDestinationName" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="FlightBottomSearch">
+                <div class="FlightSearchLeft">
+                    <div class="form-group">
+                        <label asp-for="AirlineName" class="control-label"></label>
+                        <select asp-for="AirlineName" class="form-control">
+                            <option value="" selected disabled></option>
+                            @foreach (var airline in Model.AllAirlines)
+                            {
+                                <option>@airline.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirlineName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="FlightSearchRight">
+                    <div class="form-group">
+                        <label asp-for="TakeOffDate" class="control-label"></label>
+                        <input asp-for="TakeOffDate" class="form-control" />
+                        <span asp-validation-for="TakeOffDate" class="text-danger"></span>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="FlightSearchButton">
+                <input type="submit" value="Search" class="btn btn-primary" asp-action="SearchFound" asp-controller="Flights" />
+            </div>
+        </div>
+        <div class="BackToListAirlines">
+            <a asp-action="Index" class="btn btn-primary GoBackToFlights ">Back to List</a>
+        </div>
+    </form>
+
+    
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

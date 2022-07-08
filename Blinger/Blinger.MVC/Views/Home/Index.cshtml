@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<body class="HomeIndex">
+    <div class="maxWidth">
+        <section class="sectionHomePage">
+            <div class="homepage-textcenter ">
+                <h1>Blinger</h1>
+                <h3>A one way ticket to your happiness!</h3>
+                <div>
+                    <h5>With this site you can book a flight on a exact date and its very cheap!</h5>
+                </div>
+            </div>
+            <div class="Scroll">
+                <a href="#section2" id="div1">︾</a>
+            </div>
+        </section>
+        <section class="sectionHomePage" id="section2">
+            <div class="optionMenuFlex">
+                <div class="homepage-optionmenu reveal">
+                    <ul>
+                        <li style="--i:4;"><h1>Airports Menu</h1></li>
+                        <li style="--i:3;" class="lists"><a asp-area="" asp-controller="Airports" asp-action="Index">Airports</a></li>
+                        <li style="--i:2;" class="lists"><a asp-area="" asp-controller="Airports" asp-action="Create">Create</a></li>
+                        <li style="--i:1;" class="lists"><a asp-area="" asp-controller="Airports" asp-action="IndexForDelete">Delete</a></li>
+                    </ul>
+                </div>
+                <div class="homepage-optionmenu reveal">
+                    <ul>
+                        <li style="--i:4;"><h1>Airlines Menu</h1></li>
+                        <li style="--i:3;" class="lists"><a asp-area="" asp-controller="Airlines" asp-action="Index">Airlines</a></li>
+                        <li style="--i:2;" class="lists"><a asp-area="" asp-controller="Airlines" asp-action="Create">Create</a></li>
+                        <li style="--i:1;" class="lists"><a asp-area="" asp-controller="Airlines" asp-action="IndexForDelete">Delete</a></li>
+                    </ul>
+                </div>
+                <div class="homepage-optionmenu reveal">
+                    <ul>
+                        <li style="--i:4;"><h1>Flights Menu</h1></li>
+                        <li style="--i:3;" class="lists"><a asp-area="" asp-controller="Flights" asp-action="Index">Flights</a></li>
+                        <li style="--i:2;" class="lists"><a asp-area="" asp-controller="Flights" asp-action="Create">Create</a></li>
+                        <li style="--i:1;" class="lists"><a asp-area="" asp-controller="Flights" asp-action="Search">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>

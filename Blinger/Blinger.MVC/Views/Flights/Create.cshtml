@@ -1,0 +1,191 @@
+﻿@model Blinger.MVC.Models.FlightModels.FlightCreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<body class="FlightIndex">
+    <div class="FormCenter">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="AirlineName" class="control-label"></label>
+                        <select asp-for="AirlineName" class="form-control">
+                            <option value="" selected disabled></option>
+                            @foreach (var airline in Model.AllAirlines)
+                            {
+                                <option>@airline.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirlineName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AirportOriginName" class="control-label"></label>
+                        <select asp-for="AirportOriginName" class="form-control"  id="form-control1" onchange="GetPortId1()">
+                            <option value="" selected disabled></option>
+                            @foreach (var airport in Model.AllAirports)
+                            {
+                                <option>@airport.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirportOriginName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AirportDestinationName" class="control-label"></label>
+                        <select asp-for="AirportDestinationName" class="form-control" id="form-control2" onchange="GetPortId1">
+                            <option value="" selected disabled></option>
+                            @foreach (var airport in Model.AllAirports)
+                            {
+                                <option>@airport.Name</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="AirportDestinationName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TakeOffDate" class="control-label"></label>
+                        <input asp-for="TakeOffDate" class="form-control" min="@DateTime.Now.AddHours(3).ToString("yyyy-MM-ddTHH:mm")" value="@DateTime.Now.AddHours(3)"/>
+                        <span asp-validation-for="TakeOffDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LandingDate" class="control-label"></label>
+                        <input asp-for="LandingDate" class="form-control" min="" value="@DateTime.Now.AddHours(3)"/>
+                        <span asp-validation-for="LandingDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group BackToListAirlines">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Create</button>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Do you want to create seats for this flight?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Press Yes for more option. Press No to create flight without seats.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-secondary">No</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter1">Yes</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade " id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog1 modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Choose the amount of seats</h5>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="itemsForTheModal">
+                                        <h3>Business Class Seats</h3>
+                                        <div class="form-group">
+                                            <label asp-for="RowsBusiness" class="control-label">Rows</label>
+                                            <select asp-for="RowsBusiness" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 20; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="RowsBusiness" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="ColsBusiness" class="control-label">Cols</label>
+                                            <select asp-for="ColsBusiness" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 6; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="ColsBusiness" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="itemsForTheModal">
+                                        <h3>Economy Class Seats</h3>
+                                        <div class="form-group">
+                                            <label asp-for="RowsEconomy" class="control-label">Rows</label>
+                                            <select asp-for="RowsEconomy" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 20; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="RowsEconomy" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="ColsEconomy" class="control-label">Cols</label>
+                                            <select asp-for="ColsEconomy" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 6; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="ColsEconomy" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="itemsForTheModal">
+                                        <h3>First Class Seats</h3>
+                                        <div class="form-group">
+                                            <label asp-for="RowsFirst" class="control-label">Rows</label>
+                                            <select asp-for="RowsFirst" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 20; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="RowsFirst" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="ColsFirst" class="control-label">Cols</label>
+                                            <select asp-for="ColsFirst" class="form-control">
+                                                <option value="" selected disabled></option>
+                                                @for (int i = 1; i <= 6; i++)
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="ColsFirst" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">Submit</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="BackToListAirlines">
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+    
+    </body>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+

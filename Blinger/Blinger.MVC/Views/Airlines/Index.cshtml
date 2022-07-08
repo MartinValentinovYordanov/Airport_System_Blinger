@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Blinger.MVC.Data.Airline>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body class="FlightIndex">
+
+    <p class="CreateNewAirpots">
+        <a asp-action="Create" class="btn DeleteButton">Create New</a>
+    </p>
+    <table class="table IndexTables">
+        <thead>
+            <tr>
+                <th width="100%">
+                    Airline Names
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr width="100%">
+                    <td >
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>

@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Blinger.MVC.Data.Seat>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body class="FlightIndex">
+    <div class="GoBackToFlights">
+        <a asp-action="Index" asp-controller="Flights" class="btn btn-primary">Go back to flights</a>
+    </div>
+
+    <table class="table">
+        <h1>Business Class Seats</h1>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Row)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Col)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsBooked)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.SeatClass == "Business")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Row)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Col)
+                        </td>
+                        <td>
+
+
+                            @if (item.IsBooked)
+                            {
+                                <p style="color:orangered;">Booked</p>
+                            }
+                            else
+                            {
+                                <p style="color:lightgreen;">Available</p>
+                            }
+
+
+
+                        </td>
+                        <td>
+                            @if (!item.IsBooked)
+                            {
+                                <a asp-action="Book" asp-route-id="@item.Id">Book</a>
+                            }
+                            else
+                            {
+                                <a asp-action="UnBook" asp-route-id="@item.Id">UnBook</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <table class="table">
+        <h1>Economy Class Seats</h1>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Row)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Col)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsBooked)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.SeatClass == "Economy")
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Row)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Col)
+                        </td>
+                        <td>
+
+
+                            @if (item.IsBooked)
+                            {
+                                <p style="color:orangered;">Booked</p>
+                            }
+                            else
+                            {
+                                <p style="color:lightgreen;">Available</p>
+                            }
+
+
+
+                        </td>
+                        <td>
+                            @if (!item.IsBooked)
+                            {
+                                <a asp-action="Book" asp-route-id="@item.Id">Book</a>
+                            }
+                            else
+                            {
+                                <a asp-action="UnBook" asp-route-id="@item.Id">UnBook</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <table class="table">
+        <h1>First Class Seats</h1>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Row)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Col)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsBooked)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.SeatClass == "First")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Row)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Col)
+                        </td>
+                        <td>
+
+
+                            @if (item.IsBooked)
+                            {
+                                <p style="color:orangered;">Booked</p>
+                            }
+                            else
+                            {
+                                <p style="color:lightgreen;">Available</p>
+                            }
+
+
+
+                        </td>
+                        <td>
+                            @if (!item.IsBooked)
+                            {
+                                <a asp-action="Book" asp-route-id="@item.Id">Book</a>
+                            }
+                            else
+                            {
+                                <a asp-action="UnBook" asp-route-id="@item.Id">UnBook</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    </body>

@@ -1,0 +1,54 @@
+﻿@model Blinger.MVC.Data.Flight
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Flight</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="AirlineName" class="control-label"></label>
+                <input asp-for="AirlineName" class="form-control" />
+                <span asp-validation-for="AirlineName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportOriginName" class="control-label"></label>
+                <input asp-for="AirportOriginName" class="form-control" />
+                <span asp-validation-for="AirportOriginName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportDestinationName" class="control-label"></label>
+                <input asp-for="AirportDestinationName" class="form-control" />
+                <span asp-validation-for="AirportDestinationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakeOffDate" class="control-label"></label>
+                <input asp-for="TakeOffDate" class="form-control" />
+                <span asp-validation-for="TakeOffDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LandingDate" class="control-label"></label>
+                <input asp-for="LandingDate" class="form-control" />
+                <span asp-validation-for="LandingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

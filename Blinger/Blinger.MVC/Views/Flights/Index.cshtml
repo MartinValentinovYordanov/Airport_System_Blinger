@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Blinger.MVC.Models.FlightModels.FlightListModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body class="FlightIndex">
+    <div class="FlightIndexSearch">
+        <p>
+            <a asp-action="Create" class="btn DeleteButton TopAnimation" id="div1">Create New</a>
+        </p>
+        <div >
+            <a asp-action="Search" asp-controller="Flights" class="btn DeleteButton TopAnimation" id="div1">Search for specific flight</a>
+        </div>
+        <!-- Modal -->
+        
+    </div>
+    <table class="table SearchForFlight">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirlineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirportOriginName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirportDestinationName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakeOffDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LandingDate)
+                </th>
+                <th>
+                    All Seats
+                </th>
+                <th>
+                    Free seats
+                </th>
+                <th>
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirlineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirportOriginName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirportDestinationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TakeOffDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LandingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AllSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FreeSeats)
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn DeleteButton" id="div1">Delete 🗑</a> 
+                        @if (item.AllSeats >= 360)
+                        {
+
+                        }
+                        else
+                        {
+                        <a asp-controller="Seats" asp-action="Create" asp-route-flightId="@item.Id" class="btn DeleteButton" id="div2">CreateSeat 💺</a> 
+                        }
+                        <a asp-action="Index" asp-controller="Seats" asp-route-id="@item.Id" class="btn DeleteButton" id="div3">All seats ☰</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

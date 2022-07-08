@@ -1,0 +1,64 @@
+﻿@model Blinger.MVC.Models.SeatModels.SeatCreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<body class="FlightIndex">
+    <div class="FormCenter" id="div1">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="form-group">
+                        <label asp-for="SeatClass" class="control-label"></label>
+                        <select asp-for="SeatClass" class="form-control" id="SeatValidation">
+
+                            <option>Business</option>
+                            <option>Economy</option>
+                            <option>First</option>
+                        </select>
+                        <span asp-validation-for="SeatClass" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Row" class="control-label"></label>
+                        <select asp-for="Row" class="form-control">
+                            <option value="" selected disabled></option>
+                            @for (int i = 1; i <= 20; i++)
+                            {
+
+                                <option>@i</option>
+
+                            }
+                        </select>
+                        <span asp-validation-for="Row" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Col" class="control-label"></label>
+                        <select asp-for="Col" class="form-control">
+                            <option value="" selected disabled></option>
+                            @for (char i = 'A'; i <= 'F'; i++)
+                            {
+                                <option>@i</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Col" class="text-danger"></span>
+                    </div>
+                    <input hidden asp-for="FlightId" class="form-control" />
+                    <div class="form-group BackToListAirlines">
+                        <input type="submit" value="Create" class="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+            <div class="BackToListAirlines">
+                <a href="@Url.Action("Index", "Flights",new { id = Model.FlightId})" class="btn btn-primary">Go back to flights</a>
+            </div>
+        </div>
+</body>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+    

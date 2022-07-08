@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Blinger.MVC.Models.FlightModels.FlightListModel>
+
+@{
+    ViewData["Title"] = "SearchFound";
+}
+
+<body class="FlightIndex">
+    <p>
+        <a asp-action="Index" asp-controller="Flights" class="btn GoBackToFlights btn-primary">Back to Flights</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirlineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirportOriginName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirportDestinationName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakeOffDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LandingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreeSeats)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirlineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirportOriginName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AirportDestinationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TakeOffDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LandingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AllSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FreeSeats)
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</body>
